@@ -16,12 +16,5 @@
   * When you click the same button twice, you get the command to run the code.
   * Paste the command in JS console.
 -------------------------------------
-![boxes](/sources/asset.gif)
 
 For any query, please mail me at: <creatermillow645569@gmail.com>
-
-|   |   |   |   |   |
-|:-:|:-:|:-:|:-:|:-:|
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
