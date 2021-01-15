@@ -19,3 +19,6 @@
 -------------------------------------
 
 For any query, please mail me at: <creatermillow645569@gmail.com>
+<p align="center">
+  <img src="https://github.com/millow-stack/alternate/blob/master/docs/sources/1428029466573253844solid-line-border-clip-art-2mrn5-md.png">
+</p>
