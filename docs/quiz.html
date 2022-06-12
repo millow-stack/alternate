@@ -1,0 +1,157 @@
+<html>  
+<head>   
+	<title> SSC CGL TIER 2 </title> 
+	<style type="text/css">
+		*{
+			outline:  none;
+			text-align: center;
+		}
+		html, body{
+			background: #f5f5f5;
+		}
+		h2{
+			width: 100%;
+			background: #0a0a0a;
+			font-size: 12mm;
+			color: green;
+			border-bottom: white dashed;
+		}
+		br{
+			border: dashed;
+		}
+		fieldset{
+			width: 45%;
+			height: 100px;
+			display: inline-block;
+			background: white;
+		}
+		button{
+			width: 13%;
+			height: 25px;
+		}
+		span{
+			font-weight: bold;
+			padding: 30px;
+		}
+		legend{
+			font-size: 0.7cm;
+			font-style: oblique;
+		}
+	</style> 
+</head>  
+<body>  
+	<u><h2> SSC CGL TIER 2 QN</h2></u>   
+	<!-- call user-defined getRandomImage function after 2 seconds -->    
+	<fieldset>
+		<legend>Stopwatch</legend>
+		<p><span id="seconds">00</span>:<span id="tens">00</span></p>
+		<button id="button-start">Start</button>
+		<button id="button-stop">Stop</button>
+		<button id="button-reset">Reset</button>
+	</fieldset>
+	<fieldset>
+		<legend>Score board</legend>
+		<button onclick="incriment('harish')">Harish</button><span id="harish">0</span>
+		<br>
+		<button onclick="incriment('gokul')">Gokul</button><span id="gokul">0</span>
+	</fieldset>
+	<br> <br> 
+	<button onclick = "window.location.reload(true);"> NEW QUESTION </button>
+	<button onclick = "getAnswer()"> SHOW ANSWER </button>
+	<br> <br> <hr>
+	<span id="result" align="center"> </span>
+	<script> 
+		var number = Math.floor(Math.random()*5)+1;  
+		document.getElementById("result").innerHTML = '<img src="S:/QUESTION 1/QN- ('+number+').png" />';  
+
+		function getAnswer(){
+			document.getElementById("result").innerHTML = '<img src="S:/ANSWER 1/AN- ('+number+').png" />';
+		}
+	</script> 
+	<script>
+	  window.onload = function () {
+	  
+	  var seconds = 00; 
+	  var tens = 00; 
+	  var appendTens = document.getElementById("tens")
+	  var appendSeconds = document.getElementById("seconds")
+	  var buttonStart = document.getElementById('button-start');
+	  var buttonStop = document.getElementById('button-stop');
+	  var buttonReset = document.getElementById('button-reset');
+	  var Interval ;
+
+	  buttonStart.onclick = function() {
+	    
+	    clearInterval(Interval);
+	    Interval = setInterval(startTimer, 10);
+	  }
+	  
+	    buttonStop.onclick = function() {
+	       clearInterval(Interval);
+	  }
+	  
+
+	  buttonReset.onclick = function() {
+	     clearInterval(Interval);
+	    tens = "00";
+	  	seconds = "00";
+	    appendTens.innerHTML = tens;
+	  	appendSeconds.innerHTML = seconds;
+	  }
+	  
+	   
+	  
+	  function startTimer () {
+	    tens++; 
+	    
+	    if(tens <= 9){
+	      appendTens.innerHTML = "0" + tens;
+	    }
+	    
+	    if (tens > 9){
+	      appendTens.innerHTML = tens;
+	      
+	    } 
+	    
+	    if (tens > 99) {
+	      console.log("seconds");
+	      seconds++;
+	      appendSeconds.innerHTML = "0" + seconds;
+	      tens = 0;
+	      appendTens.innerHTML = "0" + 0;
+	    }
+	    
+	    if (seconds > 9){
+	      appendSeconds.innerHTML = seconds;
+	    }
+	  
+	  }	  
+
+	}
+	if (localStorage.length == 0){
+	  	score = new Array();
+	  	localStorage.harish = 0;
+	  	localStorage.gokul = 0;
+	  	score['harish'] = 0;
+	  	score['gokul'] = 0;
+	  	document.querySelector('#harish').innerText = 0;
+	} else {
+	  	score = new Array();
+	  	score['gokul'] = Number(localStorage.gokul);
+	  	score['harish'] = Number(localStorage.harish);
+	  	document.querySelector('#harish').innerText = score['harish'];
+	  	document.querySelector('#gokul').innerText = score['gokul'];
+	}
+    function incriment(name){
+    	score[name] += 1;
+		document.querySelector('#'+name).innerText = score[name];
+		if (name == 'harish'){
+			localStorage.harish = score[name];
+		}
+		if (name == 'gokul'){
+			localStorage.harish = score[name];
+		}
+    }
+	</script> 
+</body>
+</html>
